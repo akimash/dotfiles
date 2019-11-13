@@ -1,0 +1,1 @@
+/home/akimas/.config/fisherman/pure/functions/_pure_get_prompt_symbol.fish

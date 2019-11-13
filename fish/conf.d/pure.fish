@@ -1,0 +1,1 @@
+/home/akimas/.config/fisherman/pure/conf.d/pure.fish
