@@ -1,1 +1,2 @@
-/home/akimas/.config/fisherman/pure/fish_greeting.fish
+function fish_greeting
+end

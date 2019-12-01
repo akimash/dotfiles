@@ -1,1 +1,3 @@
-/home/akimas/.config/fisherman/pure/functions/_pure_prompt_ending.fish
+function _pure_prompt_ending
+    echo "$pure_color_normal "
+end

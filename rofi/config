@@ -1,9 +1,10 @@
 rofi.modi:  drun,window,system:~/.config/rofi/rofi_system.sh
 rofi.sidebar-mode:  true
 rofi.hide-scrollbar: true
+rofi.kb-accept-entry: Return,!Alt-Tab
 rofi.kb-cancel: Escape,Control+bracketleft
-rofi.kb-mode-previous: Super+h
-rofi.kb-mode-next: Super+l
-rofi.kb-row-up: Super+k
-rofi.kb-row-down: Super+j
-rofi.theme: /usr/share/rofi/themes/custom.rasi
+rofi.kb-mode-previous: Alt+h,Super+h
+rofi.kb-mode-next: Alt+l,Super+l
+rofi.kb-row-up: Alt+k,Super+k,Up
+rofi.kb-row-down: Alt+j,Super+j,Down,Alt-Tab
+rofi.theme: /usr/share/rofi/themes/gruvbox-dark.rasi

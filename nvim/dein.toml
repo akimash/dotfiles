@@ -1,0 +1,28 @@
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+build = './install.sh nightly'
+hook_add = 'source ~/.config/nvim/plugins/coc.rc.nvim'
+
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+hook_add = 'source ~/.config/nvim/plugins/denite.rc.nvim'
+
+[[plugins]]
+repo = 'cohama/lexima.vim'
+
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+hook_add = 'source ~/.config/nvim/plugins/airline.rc.nvim'
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+
+[[plugins]]
+repo = 'Xuyuanp/nerdtree-git-plugin'
+
+[[plugins]]
+repo = "shougo/deol.nvim"
+hook_add = 'source ~/.config/nvim/plugins/deol.rc.nvim'
+
+[[plugins]]
+repo = 'gorodinskiy/vim-coloresque'
