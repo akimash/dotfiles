@@ -8,7 +8,7 @@ set $mod Mod1
 # workspace_layout tabbed <stacking|tabbed>
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-default_border pixel 3
+default_border pixel 4
 default_floating_border normal
 
 # Hide borders
@@ -16,7 +16,7 @@ default_floating_border normal
 
 # change borders
 bindsym $mod+u border none
-bindsym $mod+y border pixel 2
+bindsym $mod+y border pixel 4
 bindsym $mod+n border normal
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -33,9 +33,12 @@ bindsym $mod+Return exec xterm
 
 # kill focused window
 bindsym $mod+Shift+q kill
+bindsym Mod4+w kill
 
-bindsym $mod+Shift+plus exec --no-startup-id xbacklight -inc 2
-bindsym $mod+Shift+minus exec --no-startup-id xbacklight -dec 1
+bindsym Mod4+plus exec --no-startup-id xbacklight -inc 2
+bindsym Mod4+minus exec --no-startup-id xbacklight -dec 1
+bindsym Mod4+n exec --no-startup-id redshift -x && redshift -O 2500 && xbacklight -set 0.05
+bindsym Mod4+Shift+n exec --no-startup-id redshift -x && xbacklight -set 40
 
 # start program launcher
 # bindsym $mod+d exec --no-startup-id dmenu_recency
@@ -65,7 +68,7 @@ bindsym $mod+m exec terminal -e 'alsamixer'
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
 bindsym $mod+F2 exec google-chrome-stable
 bindsym $mod+F3 exec pcmanfm
-bindsym $mod+p exec arandr
+bindsym Mod4+p exec arandr
 # bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec pcmanfm_pkexec
 bindsym $mod+F5 exec terminal -e 'mocp'
@@ -144,6 +147,8 @@ bindsym $mod+minus scratchpad show
 #navigate workspaces next / previous
 bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
+bindsym Mod4+l workspace next
+bindsym Mod4+h workspace prev
 
 # Workspace names
 # to display names or symbols instead of plain workspace numbers you can use
@@ -285,7 +290,8 @@ bindsym $mod+9 exec --no-startup-id blurlock
 #exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Autostart applications
-exec --no-startup-id slack
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec --no-startup-id teams
 exec --no-startup-id discord
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
@@ -334,34 +340,34 @@ set_from_resource $term_color14    color14
 set_from_resource $term_color15    color15
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
-bar {
-	i3bar_command i3bar
-	status_command i3status
-	position top
-
-# please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-	tray_output primary
-	tray_output eDP1
-
-	bindsym button4 nop
-	bindsym button5 nop
-  font xft:Inconsolata 13
-	strip_workspace_numbers yes
-
-    colors {
-        background #282828
-#        background #83a598
-        statusline #FDF6E3
-        separator  #7c6f64
-
-#                      border  backgr. text
-        focused_workspace  #7c6f64 #83a598 #292F34
-        active_workspace   #7c6f64 #353836 #ebdbb2
-        inactive_workspace #7c6f64 #222D31 #ebdbb2
-        binding_mode       #7c6f64 #2C2C2C #F9FAF9
-        urgent_workspace   #7c6f64 #FDF6E3 #E5201D
-    }
-}
+#bar {
+#	i3bar_command i3bar
+#	status_command i3status
+#	position top
+#
+## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
+#	tray_output primary
+#	tray_output eDP1
+#
+#	bindsym button4 nop
+#	bindsym button5 nop
+#  font xft:Inconsolata 13
+#	strip_workspace_numbers yes
+#
+#    colors {
+#        background #282828
+##        background #83a598
+#        statusline #FDF6E3
+#        separator  #7c6f64
+#
+##                      border  backgr. text
+#        focused_workspace  #7c6f64 #83a598 #292F34
+#        active_workspace   #7c6f64 #353836 #ebdbb2
+#        inactive_workspace #7c6f64 #222D31 #ebdbb2
+#        binding_mode       #7c6f64 #2C2C2C #F9FAF9
+#        urgent_workspace   #7c6f64 #FDF6E3 #E5201D
+#    }
+#}
 
 # hide/unhide i3status bar
 bindsym $mod+Shift+m bar mode toggle
@@ -369,8 +375,8 @@ bindsym $mod+Shift+m bar mode toggle
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
   client.focused          #83a598 #83a598 #32302f #7c6f64
-  client.focused_inactive #7c6f64 #282828 #ebdbb2 #454948
-  client.unfocused        #7c6f64 #282828 #ebdbb2 #454948
+  client.focused_inactive #7c6f64 #7c6f64 #282828 #454948
+  client.unfocused        #7c6f64 #7c6f64 #282828 #454948
   client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
   client.placeholder      #000000 #0c0c0c #ffffff #000000 
 
@@ -381,7 +387,7 @@ bindsym $mod+Shift+m bar mode toggle
 #############################
 
 # Set inner/outer gaps
-gaps inner 15
+gaps inner 12
 gaps outer 0
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.

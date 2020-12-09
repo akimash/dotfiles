@@ -1,5 +1,5 @@
 let g:python_host_prog = '/home/akihide/.pyenv/versions/venv2/bin/python2.7'
-let g:python3_host_prog = '/home/akihide/.pyenv/versions/venv/bin/python3.7'
+let g:python3_host_prog = '/usr/bin/python'
 
 "dein Scripts-----------------------------
 if &compatible
@@ -69,6 +69,7 @@ set splitbelow
 set splitright
 set noshowmode
 set cmdheight=1
+set fileencodings=utf-8,sjis,euc-jp,latin1
 
 colorscheme gruvbox
 let g:lightline = { 'colorscheme': 'gruvbox' }
@@ -82,9 +83,11 @@ let NERDTreeQuitOnOpen = 1
 " autocmd vimenter * NERDTree
 
 " Tab
-nmap <C-w>n :tabnew<CR>
-nmap <C-w><C-n> :tabNext<CR>
+nmap <C-w>t :tabnew<CR>
+nmap <C-w><C-n> :tabnext<CR>
+nmap <C-w>n :tabnext<CR>
 nmap <C-w><C-p> :tabprevious<CR>
+nmap <C-w>p :tabprevious<CR>
 nmap <C-w><C-h> <C-w>h
 nmap <C-w><C-j> <C-w>j
 nmap <C-w><C-k> <C-w>k
@@ -101,5 +104,23 @@ vnoremap <C-n> 20j
 nnoremap <C-p> 20k
 vnoremap <C-p> 20k
 
-inoremap <silent> jj <ESC>:<C-u>w<CR>  
+" Saving
+inoremap <silent> jj <ESC> 
+inoremap <silent> っｊ <ESC> 
+nmap <C-s> :<C-u>w<CR>
+inoremap <C-s> :<C-u>w<CR>
 
+nnoremap <silent> <Space><Space> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
+nmap # <Space><Space>:%s/<C-r>///g<Left><Left>
+
+xnoremap <silent> <Space> mz:call <SID>set_vsearch()<CR>:set hlsearch<CR>`z
+xnoremap * :<C-u>call <SID>set_vsearch()<CR>/<C-r>/<CR>
+xmap # <Space>:%s/<C-r>///g<Left><Left>
+
+function! s:set_vsearch()
+  silent normal gv"zy
+  let @/ = '\V' . substitute(escape(@z, '/\'), '\n', '\\n', 'g')
+endfunction
+
+imap <S-CR> <End><CR>
+imap <C-S-CR> <Up><End><CR>
