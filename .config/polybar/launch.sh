@@ -7,6 +7,12 @@ killall -q polybar
 
 # Launch bar1 and bar2
 echo "---" | tee -a /tmp/polybar1.log /tmp/polybar2.log
-polybar example >>/tmp/example.log 2>&1 & disown
+polybar top >>/tmp/example.log 2>&1 & disown
+
+echo "---" | tee -a /tmp/polybar1.log /tmp/polybar2.log
+polybar dp >>/tmp/example.log 2>&1 & disown
+
+echo "---" | tee -a /tmp/polybar1.log /tmp/polybar2.log
+polybar hdmi >>/tmp/example.log 2>&1 & disown
 
 echo "Bars launched..."
